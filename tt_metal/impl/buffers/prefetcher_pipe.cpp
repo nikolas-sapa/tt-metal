@@ -153,7 +153,7 @@ void PrefetcherPipe::write_config_to_device() {
         for (IDevice* target_device : device_->get_devices()) {
             auto page_copy = page;
             TT_FATAL(
-                detail::WriteToDeviceL1(target_device, core, config_address_, page_copy),
+                tt::tt_metal::detail::WriteToDeviceL1(target_device, core, config_address_, page_copy),
                 "Failed to write PrefetcherPipe config page to core {} on device {}",
                 core.str(),
                 target_device->id());
